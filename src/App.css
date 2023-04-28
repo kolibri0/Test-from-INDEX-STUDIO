@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+@font-face{
+  font-family: "Ubuntu";
+  src: url('./static/fonts/Ubuntu-Medium.ttf')
+}
+@font-face{
+  font-family: "Ubuntu-Bold";
+  src: url('./static/fonts/Ubuntu-Bold.ttf')
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.conatiner{
+  width: 1200px;
+  margin: 0 auto;
+  /* border: 1px solid gray; */
+}
+.card-item{
+  box-shadow: 0px 0px 11px 1px rgba(34, 60, 80, 0.1);
+  width: 224px;
+  border-radius: 10px;
+}
+.cards-grid{
+  width: 968px;
+  /* border: 1px solid red; */
+  margin: 92px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, 224px);
+  gap: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.images{
+  width: 224px;
+  height: 260px;
+  background: #E8E8E8;
+  border-radius: 10px 10px 0 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-bottom{
+  width: 199px;
+  height: 104px;
+  padding-top: 10px;
+  padding-left: 12px;
+  padding-right: 13px;
+  /* border-radius: 0 0 10px 10px; */
+}
+.price-block{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  /* margin-right: 13px; */
 }
-
-.App-link {
-  color: #61dafb;
+.price{
+  font-family: 'Ubuntu-Bold';
+  font-style: normal;
+  font-size: 22px;
+  line-height: 25px;
+  color: #2C2C2C;
+  margin-bottom: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-title{
+  font-family: 'Ubuntu-Bold';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  margin-bottom: 10px;
 }
+.first-num{
+  margin-right: 5px;
+}
+.price::after{
+  content: "\20BD";
+  margin-left: 5px;
+}
+.city-block{
+  display: flex;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #8F8F8F;
+  justify-content: space-between;
+}
+/* .city{
+  text-align: right;
+} */
