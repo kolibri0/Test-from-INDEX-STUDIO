@@ -24,6 +24,7 @@
   display: grid;
   grid-template-columns: repeat(4, 224px);
   gap: 24px;
+  position: relative;
 }
 
 .images{
@@ -31,8 +32,13 @@
   height: 260px;
   background: #E8E8E8;
   border-radius: 10px 10px 0 0;
+  position: relative;
 }
-
+.img{
+  width: 224px;
+  height: 260px;
+  border-radius: 10px 10px 0 0;
+}
 .card-bottom{
   width: 199px;
   height: 104px;
@@ -44,6 +50,7 @@
 .price-block{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /* margin-right: 13px; */
 }
 .price{
@@ -53,6 +60,27 @@
   line-height: 25px;
   color: #2C2C2C;
   margin-bottom: 10px;
+}
+.like{
+  content: url('../src/static/icons/IconLike.svg');
+  margin-bottom: 5px;
+  width: 20px;
+  height: 19px;
+}
+.like-active{
+  content: url('../src/static/icons/IconLikeActive.svg');
+  margin-bottom: 5px;
+  width: 20px;
+  height: 19px;
+}
+.like:hover{
+  content: url('../src/static/icons/IconLikeHover.svg');
+  margin-bottom: 5px;
+  width: 20px;
+  height: 19px;
+  transform: scaleX(1.1);
+  transform: scaleY(1.1);
+  /* color:#A4A4A4; */
 }
 .card-title{
   font-family: 'Ubuntu-Bold';
@@ -82,3 +110,131 @@
 /* .city{
   text-align: right;
 } */
+.more{
+  background: #FFFFFF;
+  border-radius: 45px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #00A0AB;
+  text-align: right;
+  padding: 8px 15px;
+  border: none;
+  margin: 31px auto 0;
+  display: block;
+  cursor: pointer;
+}
+
+
+.slick-dots li.slick-active button:before {
+  content: '';
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #00A0AB;
+  left: 8px;
+  bottom: 0;
+  top: 5px;
+}
+
+.spiner-block{
+  margin-top: 77px;
+  text-align: center;
+}
+.new-container{
+  width: 968px;
+  height: 541px;
+  margin: 0 auto;
+}
+
+.spiner{
+  animation: spiner 0.8s linear infinite;
+}
+
+.error-block{
+  width: 968px;
+  height: 541px;
+  margin: 23px auto 0;
+  text-align: center;
+}
+.error-message{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14.4px;
+  line-height: 17px;
+  color: #8F8F8F;
+}
+.error-btn{
+  background: #FFFFFF;
+  border-radius: 45px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  color: #00A0AB;
+  padding: 8px 15px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.empty-block{
+  text-align: center;
+  width: 968px;
+}
+.empty-text{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.8px;
+  line-height: 19px;
+  color: #00A0AB;
+  margin-bottom: 9px;
+}
+.empty-message{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14.4px;
+  line-height: 17px;
+  color: #8F8F8F;
+  width: 246px;
+  margin: 0 auto;
+}
+/* .conatin-img{
+  position: relative;
+} */
+.checked{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #2C2C2C;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  position: absolute;
+  top: 20px;
+  left:50%;
+  transform:translate(-50%, -50%);
+  padding: 5px 8px;
+  z-index: 10000;
+}
+
+
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+   }  
+   /* 50% {
+    transform: rotate(180deg);
+   }    */
+  100% {
+     transform: rotate(360deg); 
+    }
+ }
