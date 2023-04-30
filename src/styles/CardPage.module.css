@@ -51,3 +51,64 @@
 .about{
   font-size: 20px;
 }
+
+
+@media (max-width: 991px){
+  .content{
+    width: 700px;
+    margin: 0 auto;
+  }
+  .conatiner{
+    width: 700px;
+  }
+}
+
+@media (max-width: 768px){
+  .content{
+    width: 500px;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    padding-right: 0;
+    padding: 10px;
+  }
+  .conatiner{
+    width: 520px;
+  }
+  .img{
+    width: 500px;
+    border-radius: 10px;
+  }
+}
+@media (max-width: 480px){
+  .content{
+    width: 380px;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    padding-right: 0;
+    padding: 10px;
+  }
+  .conatiner{
+    width: 400px;
+  }
+  .img{
+    width: 380px;
+    border-radius: 10px;
+  }
+  .back{
+    left: 5px;
+  }
+}
+@media (max-width: 360px){
+  .content{
+    width: 300px;
+  }
+  .conatiner{
+    width: 320px;
+  }
+  .img{
+    width: 300px;
+    border-radius: 10px;
+  }
+}

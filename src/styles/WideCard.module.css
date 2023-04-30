@@ -122,3 +122,8 @@
     display: flex;
   }
 }
+@media (max-width: 360px){
+.cardItem{
+  width: 280px;
+}
+}

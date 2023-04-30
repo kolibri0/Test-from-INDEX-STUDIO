@@ -265,3 +265,16 @@
     position: relative;
   }
  }
+ @media (max-width: 360px){
+  .cards-grid{
+    width: 224px;
+    grid-template-columns: repeat(1, 224px);
+  }
+  .cards-grid-wide{
+    width: 280px;
+    grid-template-columns: repeat(1, 224px);
+  }
+  .conatiner{
+    width: 300px;
+  }
+ }
