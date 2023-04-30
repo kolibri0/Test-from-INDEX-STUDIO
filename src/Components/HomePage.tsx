@@ -8,6 +8,7 @@ import EmptyBlock from '../Components/EmptyBlock';
 import ErrorBlock from '../Components/ErrorBlock';
 import '../module.d.ts'
 import WideCardItem from '../Components/WideCardItem';
+import MyWideLoader from './WideLoader';
 
 
 const Spiner: string = require('../static/icons/Spiner.svg').default
@@ -128,7 +129,9 @@ const HomePage = () => {
                 />)
               : error
                 ? <ErrorBlock />
-                : [...new Array(20)].map(() => <MyLoader />)
+                : cardsType == 'default'
+                  ? [...new Array(20)].map(() => <MyLoader />)
+                  : [...new Array(20)].map(() => <MyWideLoader />)
           }
           {
             !cards.length && !error && !loading

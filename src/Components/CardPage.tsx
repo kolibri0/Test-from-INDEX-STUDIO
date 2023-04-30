@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styles from '../styles/CardPage.module.css'
 
 const CardPage = () => {
@@ -15,6 +15,7 @@ const CardPage = () => {
   fetchItem()
   return (<>
     <div className={styles.conatiner}>
+      <Link className={styles.back} to={'/'}></Link>
       <div className={styles.content}>
         <div className={styles.left}>
           <div>

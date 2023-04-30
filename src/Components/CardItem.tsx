@@ -61,19 +61,19 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
           </Slider>
         </div>
       </div>
-      <Link className={styles.link} to={`/${card.id}`}>
-        <div className={styles.cardBottom}>
-          <div className={styles.priceBlock}>
-            <div className={styles.price}>{Math.floor(card.price / 60)}</div>
-            <div className={LikesId.some((checkLike)) ? styles.likeActive : styles.like} onClick={() => addLike(card.id)}></div>
-          </div>
-          <div className={styles.cardTitle}>{card.title}</div>
-          <div className={styles.cityBlock}>
-            <div className={styles.cityTitle}>{card.address.split(' ')[0]}</div>
-            <div className={styles.city}>{card.address.split(' ')[1]}</div>
-          </div>
+      {/* <Link className={styles.link} to={`/${card.id}`}> */}
+      <div className={styles.cardBottom}>
+        <div className={styles.priceBlock}>
+          <div className={styles.price}>{Math.floor(card.price / 60)}</div>
+          <div className={LikesId.some((checkLike)) ? styles.likeActive : styles.like} onClick={() => addLike(card.id)}></div>
         </div>
-      </Link>
+        <Link className={styles.cardTitle} to={`/${card.id}`}>{card.title}</Link>
+        <Link className={styles.cityBlock} to={`/${card.id}`}>
+          <div className={styles.cityTitle}>{card.address.split(' ')[0]}</div>
+          <div className={styles.city}>{card.address.split(' ')[1]}</div>
+        </Link>
+      </div>
+      {/* </Link> */}
     </div>
 
   </>)
