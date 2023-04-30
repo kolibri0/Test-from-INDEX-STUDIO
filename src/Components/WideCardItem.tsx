@@ -1,10 +1,8 @@
-import * as React from 'react';
-import Slider from "react-slick";
-
+import Slider from 'react-slick';
+import styles from '../styles/WideCard.module.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../module.d.ts'
-import styles from '../styles/CardItemDefault.module.css'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface props {
@@ -15,7 +13,7 @@ interface props {
 }
 
 
-const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
+const WideCardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
 
   const settings = {
     dots: true,
@@ -36,9 +34,14 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
     ),
 
   };
+
+  // console.log(LikesId)
+
   const checkLike = (LikeId: any) => {
     return LikeId == card.id
   }
+
+
   return (<>
     <div className={styles.cardItem}>
       <div className={styles.cardTop}>
@@ -61,10 +64,11 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
           </Slider>
         </div>
       </div>
-      <Link className={styles.link} to={`/${card.id}`}>
-        <div className={styles.cardBottom}>
+      <div className={styles.cardBottom}>
+        <Link className={styles.link} to={`/${card.id}`}>
           <div className={styles.priceBlock}>
             <div className={styles.price}>{Math.floor(card.price / 60)}</div>
+            {/* <div className='like'><img src={Logo} alt="img like" /></div> */}
             <div className={LikesId.some((checkLike)) ? styles.likeActive : styles.like} onClick={() => addLike(card.id)}></div>
           </div>
           <div className={styles.cardTitle}>{card.title}</div>
@@ -72,12 +76,12 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
             <div className={styles.cityTitle}>{card.address.split(' ')[0]}</div>
             <div className={styles.city}>{card.address.split(' ')[1]}</div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
 
   </>)
 }
 
 
-export default CardItem
+export default WideCardItem
