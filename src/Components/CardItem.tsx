@@ -10,7 +10,7 @@ interface props {
   card: any,
   images: any,
   addLike: any,
-  LikesId: any[],
+  LikesId: any[] | null,
 }
 
 const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
@@ -60,7 +60,7 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
       <div className={styles.cardBottom}>
         <div className={styles.priceBlock}>
           <div className={styles.price}>{Math.floor(card.price / 60)}</div>
-          <div className={LikesId.some((checkLike)) ? styles.likeActive : styles.like} onClick={() => addLike(card.id)}></div>
+          <div className={LikesId && LikesId.some((checkLike)) ? styles.likeActive : styles.like} onClick={() => addLike(card.id)}></div>
         </div>
         <Link className={styles.cardTitle} to={`/${card.id}`}>{card.title}</Link>
         <Link className={styles.cityBlock} to={`/${card.id}`}>

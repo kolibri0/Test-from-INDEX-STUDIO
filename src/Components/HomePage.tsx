@@ -22,7 +22,7 @@ const HomePage = () => {
   const [showMore, setShowMore] = React.useState<boolean>(true)
   const [images, setImages] = React.useState<[] | any[]>([])
   const [cardsType, setCardsType] = React.useState<string>('default')
-  const [LikesId, setLikesId] = React.useState<null | any[] | string[]>(null)
+  const [LikesId, setLikesId] = React.useState<any[] | null>(null)
 
   const getCards = async () => {
     try {
