@@ -13,8 +13,6 @@ import MyWideLoader from './WideLoader';
 
 const Spiner: string = require('../static/icons/Spiner.svg').default
 
-
-
 const HomePage = () => {
 
   const [cards, setCards] = React.useState<[] | any[]>([])
@@ -112,26 +110,27 @@ const HomePage = () => {
           {
             cards.length && images.length && !loading
               ? cardsType == 'default'
+                //--------------------CARDS TYPE BLOCK------------------------------//
                 ? cards.map((card, i) => <CardItem
                   card={card}
                   images={sliceIntoChunks(images, 4, i)}
                   addLike={addLike}
                   LikesId={LikesId}
-
                 />)
-
                 : cards.map((card, i) => <WideCardItem
                   card={card}
                   images={sliceIntoChunks(images, 4, i)}
                   addLike={addLike}
                   LikesId={LikesId}
-
                 />)
+              //--------------------END CARDS TYPE BLOCK-------------------------//
               : error
                 ? <ErrorBlock />
                 : cardsType == 'default'
+                  //***--------------------LOADER TYPE BLOCK----------------------------***//
                   ? [...new Array(20)].map(() => <MyLoader />)
                   : [...new Array(20)].map(() => <MyWideLoader />)
+            //***--------------------END LOADER TYPE BLOCK------------------------***//
           }
           {
             !cards.length && !error && !loading
@@ -152,8 +151,7 @@ const HomePage = () => {
         }
 
         {
-          // document.body.scrollTop > 99 || document.documentElement.scrollTop > 99
-          (document.body.scrollTop > 99 && document.body.scrollTop != 0) || (document.documentElement.scrollTop > 99 && (document.documentElement.scrollTop != 0))
+          document.body.scrollTop > 99 || document.documentElement.scrollTop > 99
             ? <button className='up' onClick={() => upper()}>Вверх</button>
             : null
         }

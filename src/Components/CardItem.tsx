@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../module.d.ts'
@@ -11,9 +10,8 @@ interface props {
   card: any,
   images: any,
   addLike: any,
-  LikesId: any,
+  LikesId: any[],
 }
-
 
 const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
 
@@ -23,8 +21,6 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-
-
     appendDots: (dots: any) => (
       <div
         style={{
@@ -61,7 +57,6 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
           </Slider>
         </div>
       </div>
-      {/* <Link className={styles.link} to={`/${card.id}`}> */}
       <div className={styles.cardBottom}>
         <div className={styles.priceBlock}>
           <div className={styles.price}>{Math.floor(card.price / 60)}</div>
@@ -73,7 +68,6 @@ const CardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
           <div className={styles.city}>{card.address.split(' ')[1]}</div>
         </Link>
       </div>
-      {/* </Link> */}
     </div>
 
   </>)
