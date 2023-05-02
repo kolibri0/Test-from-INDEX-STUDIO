@@ -222,6 +222,14 @@
     margin: 0 auto;
     /* border: 1px solid gray; */
   }
+  .error-block{
+    width: 300px;
+    height: 541px;
+  }
+  .empty-block{
+    width: 500px;
+    margin: 0 auto;
+  }
  }
 
  @media (max-width: 768px){
@@ -264,6 +272,10 @@
     gap: 10px;
     position: relative;
   }
+  .error-block{
+    width: 370px;
+    text-align: center;
+  }
  }
  @media (max-width: 360px){
   .cards-grid{
@@ -275,6 +287,9 @@
     grid-template-columns: repeat(1, 224px);
   }
   .conatiner{
+    width: 300px;
+  }
+  .error-block{
     width: 300px;
   }
  }
