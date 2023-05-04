@@ -1,4 +1,3 @@
-
 import React from 'react';
 import '../App.css';
 import axios from 'axios';
@@ -9,22 +8,21 @@ import ErrorBlock from '../Components/ErrorBlock';
 import '../module.d.ts'
 import WideCardItem from '../Components/WideCardItem';
 import MyWideLoader from './WideLoader';
-
+import { ICard } from '../types/ICard';
 
 const Spiner: string = require('../static/icons/Spiner.svg').default
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
 
-  const [cards, setCards] = React.useState<[] | any[]>([])
+  const [cards, setCards] = React.useState<[] | ICard[]>([])
   const [page, setPage] = React.useState<number>(1)
   const [loading, setLoading] = React.useState<boolean>(true)
   const [error, setError] = React.useState<boolean>(false)
   const [showMore, setShowMore] = React.useState<boolean>(true)
-  const [images, setImages] = React.useState<[] | any[]>([])
   const [cardsType, setCardsType] = React.useState<string>('default')
-  const [LikesId, setLikesId] = React.useState<any[] | null>(null)
+  const [LikesId, setLikesId] = React.useState<string[] | null>(null)
 
-  const getCards = async () => {
+  const getCards = async (): Promise<void> => {
     try {
       const { data } = await axios.get(`https://testguru.ru/frontend-test/api/v1/items?page=${page}`)
       setCards([...cards, ...data.items])
@@ -32,23 +30,9 @@ const HomePage = () => {
       setError(true)
     }
   }
-
-  const getImages = async () => {
-    try {
-      const { data } = await axios.get(`https://picsum.photos/v2/list?page=${page}&limit=40`)
-      setImages([...images, ...data])
-    } catch (err) {
-      setError(true)
-    }
-  }
   React.useEffect(() => {
     try {
-      (async function () {
-        await getImages()
-        await getCards()
-      }()).then(() => [
-        setShowMore(false)
-      ])
+      getCards().then(() => setShowMore(false))
       setLoading(false)
     } catch (err) {
       setError(true)
@@ -66,22 +50,12 @@ const HomePage = () => {
     }
   }, [])
 
-  const sliceIntoChunks = (arr: any[], chunkSize: any, i?: any) => {
-    const res = [];
-    for (let i = 0; i < arr.length; i += chunkSize) {
-      const chunk = arr.slice(i, i + chunkSize);
-      res.push(chunk);
-    }
-    return res[i];
-  }
-
-  const showMoreFoo = () => {
+  const showMoreFoo = (): void => {
     setShowMore(true)
     setPage(page + 1)
   }
 
-
-  const addLike = (id: string) => {
+  const addLike = (id: string): void => {
     if (LikesId) {
       if (LikesId.includes(id)) {
         setLikesId(LikesId.filter((elementId) => elementId != id))
@@ -92,9 +66,9 @@ const HomePage = () => {
     }
   }
 
-  const upper = () => document.documentElement.scrollTop = 0;
+  const upper = (): number => document.documentElement.scrollTop = 0;
 
-  const checkCardType = (type: string) => {
+  const checkCardType = (type: string): void => {
     setCardsType(type)
     localStorage.setItem("CardType", JSON.stringify(type))
   }
@@ -108,18 +82,16 @@ const HomePage = () => {
       <div className='conatiner'>
         <div className={cardsType == 'default' ? 'cards-grid' : 'cards-grid-wide'}>
           {
-            cards.length && images.length && !loading
+            cards.length && !loading
               ? cardsType == 'default'
                 //--------------------CARDS TYPE BLOCK------------------------------//
                 ? cards.map((card, i) => <CardItem
                   card={card}
-                  images={sliceIntoChunks(images, 4, i)}
                   addLike={addLike}
                   LikesId={LikesId}
                 />)
                 : cards.map((card, i) => <WideCardItem
                   card={card}
-                  images={sliceIntoChunks(images, 4, i)}
                   addLike={addLike}
                   LikesId={LikesId}
                 />)

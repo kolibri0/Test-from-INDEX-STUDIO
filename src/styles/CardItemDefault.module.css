@@ -110,4 +110,9 @@
   transform:translate(-50%, -50%);
   padding: 5px 8px;
   z-index: 10000;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.checked:hover{
+  opacity: 0;
 }

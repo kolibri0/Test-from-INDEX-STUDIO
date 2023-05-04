@@ -1,8 +1,6 @@
 import * as React from 'react';
 
 const EmptyBlock = () => {
-
-
   return (<>
     <div className='empty-block'>
       <div className='empty-text'>ОБЪЯВЛЕНИЙ НЕ НАЙДЕНО</div>
@@ -10,5 +8,4 @@ const EmptyBlock = () => {
     </div>
   </>)
 }
-
 export default EmptyBlock

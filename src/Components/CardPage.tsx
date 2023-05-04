@@ -2,17 +2,21 @@ import axios from 'axios';
 import * as React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styles from '../styles/CardPage.module.css'
+import { ICard } from '../types/ICard';
 
 const CardPage = () => {
   let { id } = useParams()
 
-  const [card, setCard] = React.useState<null | any>(null)
+  const [card, setCard] = React.useState<null | ICard>(null)
 
-  const fetchItem = async () => {
+  const fetchItem = async (): Promise<void> => {
     const { data } = await axios.get(`https://testguru.ru/frontend-test/api/v1/items/${id}`)
     setCard(data)
   }
-  fetchItem()
+  React.useEffect(() => {
+    fetchItem()
+  }, [])
+
   return (<>
     <div className={styles.conatiner}>
       <Link className={styles.back} to={'/'}></Link>

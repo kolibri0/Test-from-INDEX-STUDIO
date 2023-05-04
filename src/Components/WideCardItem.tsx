@@ -4,15 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ICard } from '../types/ICard';
 
 interface props {
-  card: any,
-  images: any,
-  addLike: any,
-  LikesId: any[] | null,
+  card: ICard,
+  addLike: (id: string) => void,
+  LikesId: string[] | null,
 }
 
-const WideCardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
+const WideCardItem: React.FC<props> = ({ card, addLike, LikesId }) => {
 
   const settings = {
     dots: true,
@@ -47,13 +47,11 @@ const WideCardItem: React.FC<props> = ({ card, images, addLike, LikesId }) => {
           }
           <Slider {...settings}>
             {
-              images
-                ? images.map((img: any) => (
-                  <div className={styles.containImg}>
-                    <img className={styles.img} src={img.download_url} alt="" />
-                  </div>
-                ))
-                : null
+              [...new Array(4).map(() => (
+                <div className={styles.containImg}>
+                  <img className={styles.img} src="https://images.unsplash.com/source-404?fit=crop&fm=jpg&h=800&q=60&w=1200" alt="" />
+                </div>
+              ))]
             }
           </Slider>
         </div>
